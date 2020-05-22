@@ -12,6 +12,7 @@
     <link rel="icon" href="favicon.ico">
     <link type="text/css" rel="stylesheet" href="./res/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="./res/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="bg-image"></div>
@@ -31,7 +32,7 @@
                     <p style="text-align: center;">A Digital Agency</p>
                     <p style="text-align: center;">
                       <img src="./res/clean-hr.png" alt="" class="clean-hr insert--image wrap-off-align-center">
-                      <span style="font-size: 14px;"><a href="mailto:hello@edwardonline.com">hello@edwardonline.com</a></span>
+                      <span style="font-size: 14px;"><a class="hiddenMail" data-email="helloATedwardonlineDOTcom">Email Us</a></span>
                     </p>
                   </div>
                 </div>
@@ -48,6 +49,8 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-1858235-14', 'auto');
       ga('send', 'pageview');
+      
+      $(window).load(function(){$(".hiddenMail").on("click",function(i){i.preventDefault(),$(this).off("click");var t=$(this).attr("data-email").replace(/AT/,"@").replace(/DOT/,".");$(this).removeClass("hiddenMail"),$(this).html(t),$(this).attr("href","mailto:"+t)})});
     </script>
   </body>
 </html>
