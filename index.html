@@ -50,7 +50,17 @@
       ga('create', 'UA-1858235-14', 'auto');
       ga('send', 'pageview');
       
-      $(window).load(function(){$(".hiddenMail").on("click",function(i){i.preventDefault(),$(this).off("click");var t=$(this).attr("data-email").replace(/AT/,"@").replace(/DOT/,".");$(this).removeClass("hiddenMail"),$(this).html(t),$(this).attr("href","mailto:"+t)})});
+      $(window).load(function () {
+          $('.hiddenMail').on('click',function(event)
+          {
+              event.preventDefault();
+              $(this).off("click");
+              var email = $(this).attr("data-email").replace(/AT/,'@').replace(/DOT/,'.');
+              $(this).removeClass("hiddenMail");
+              $(this).html(email);
+              $(this).attr("href","mailto:"+email);
+          });
+      });    
     </script>
   </body>
 </html>
